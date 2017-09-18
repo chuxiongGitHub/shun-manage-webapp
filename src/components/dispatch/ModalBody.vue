@@ -65,6 +65,7 @@
         @on-change="e => change('time', e)",
         type="datetime",
         :options="dateOptions",
+        placement="top",
         placeholder="选择装机时间"
         format="yyyy-MM-dd HH:mm",
         :clearable="false",
