@@ -9,7 +9,7 @@ const routers = new Router({
   routes: [
     { path: '/', name: 'user', component: resolve => require(['@/components/user/View'], resolve) },
     { path: '/map', name: 'map', component: resolve => require(['@/components/map/View'], resolve) },
-    { path: '/dispatch', name: 'dispatch', component: resolve => require(['@/components/dispatch/View'], resolve) },
+    { path: '/dispatch', name: 'task-new', component: resolve => require(['@/components/dispatch/View'], resolve) },
     { path: '/note', name: 'note', component: resolve => require(['@/components/note/View'], resolve) },
     { path: '/device', name: 'device', component: resolve => require(['@/components/device/View'], resolve) },
     { path: '/company', name: 'company', component: resolve => require(['@/components/company/View'], resolve) }

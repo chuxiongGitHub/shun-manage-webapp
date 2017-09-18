@@ -13,9 +13,16 @@
       Menu-item(name="note")
         Icon(type="android-notifications")
         | 公告管理
-      Menu-item(name="dispatch")
-        Icon(type="share")
-        | 任务管理
+      Submenu(name="task")
+        template(slot="title")
+          Icon(type="ios-paper")
+          | 任务管理
+        Menu-item(name="task-new")
+          Icon(type="share")
+          | 新建工单
+        Menu-item(name="task-old")
+          Icon(type="share")
+          | 维护工单
       Menu-item(name="device")
         Icon(type="iphone")
         | 设备管理

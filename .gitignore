@@ -1,0 +1,13 @@
+
+.gitignore
+.idea/inspectionProfiles/
+.idea/manage-webapp.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+dist.tar
+dist/
+node_modules/querystring/.History.md.un~
+node_modules/querystring/.Readme.md.un~
+node_modules/querystring/.package.json.un~
+node_modules/querystring/test/.index.js.un~
