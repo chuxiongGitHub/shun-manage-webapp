@@ -1,5 +1,5 @@
 <template lang="pug">
-  Table(:columns="columns" :data="list")
+  Table(:columns="columns" :data="list" stripe highlight-row)
 </template>
 <script>
 import { mapState } from 'vuex'
