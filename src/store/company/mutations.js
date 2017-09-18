@@ -1,4 +1,4 @@
-import { MODAL, CREATE, LIST, FORM_CHANGE, QUERY_CHANGE, EDIT } from './keys'
+import { MODAL, CREATE, LIST, FORM_CHANGE, QUERY_CHANGE, EDIT, COMPANY_RESULT } from './keys'
 
 import _ from 'lodash'
 
@@ -31,5 +31,8 @@ export default {
     if (status === 1) {
       state.form = { ...info }
     }
+  },
+  [COMPANY_RESULT] (state, info) {
+    state.queryResult = info
   }
 }

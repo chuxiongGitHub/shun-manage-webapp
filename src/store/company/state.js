@@ -28,5 +28,6 @@ export default {
     edit: false
   },
   _form: _.cloneDeep(form),
-  form: _.cloneDeep(form)
+  form: _.cloneDeep(form),
+  queryResult: []
 }

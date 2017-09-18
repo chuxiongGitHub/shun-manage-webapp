@@ -9,3 +9,5 @@ export const modify = (machineCode, payload) => fetch.post(`/v1/machine/modify/$
 export const info = (machineCode) => fetch.get(`/v1/machine/info/${machineCode}`)
 
 export const save = payload => fetch.put('/v1/machine/save', payload)
+
+export const query = machineCode => fetch.get(`/v1/machine/query/${machineCode}`)

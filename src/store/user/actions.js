@@ -1,6 +1,7 @@
-import { LIST, QUERY_CHANGE, CREATE, MODAL, EDIT, SAVE, MODIFY } from './keys'
+import { LIST, QUERY_CHANGE, CREATE, MODAL, EDIT, SAVE, MODIFY, USER_RESULT } from './keys'
 
 import * as api from 'api/user'
+import _ from 'lodash'
 
 import iview from 'iview'
 
@@ -60,5 +61,12 @@ export default {
   async [MODIFY] ({ state, commit }, { mobile, data }) {
     await api.modify(mobile, { ...data })
     commit(LIST, await api.list(state.query))
+  },
+  async [USER_RESULT] ({ commit }, searchKey) {
+    if (!_.trim(searchKey)) {
+      commit(USER_RESULT, [])
+      return
+    }
+    commit(USER_RESULT, await api.query(searchKey))
   }
 }

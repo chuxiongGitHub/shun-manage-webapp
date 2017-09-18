@@ -11,3 +11,5 @@ export const info = (uuid) => fetch.get(`/v1/company/info/${uuid}`)
 export const save = payload => fetch.put('/v1/company/save', payload)
 
 export const modify = (uuid, payload) => fetch.post(`/v1/company/modify/${uuid}`, payload)
+
+export const query = searchKey => fetch.get(`/v1/company/query/${searchKey}`)

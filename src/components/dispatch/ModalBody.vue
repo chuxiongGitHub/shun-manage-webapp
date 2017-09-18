@@ -2,9 +2,24 @@
   Form(:label-width="72" :model="form")
     Spin(v-if="loading", fix)
     Form-item(label="商户名称")
-      Input(placeholder="请输入商户名称" v-model="form.titile", @on-change="e => change('name', e.target.value)")
+      Select(
+        v-model="form.name",
+        filterable,
+        remote,
+        :remote-method="remoteQueryCompany",
+        :loading="loading", placeholder="请输商户名称",
+        @on-change="e => change('name', e)")
+          Option(v-for="company in companyQuery", :value="company.name", :key="company.name") {{company.name}}
     Form-item(label="终端号")
-      Input(placeholder="请输入终端号", v-model="form.machineCode", @on-change="e => change('machineCode', e.target.value)")
+      Select(
+        v-model="form.machineCode",
+        filterable,
+        remote,
+        :remote-method="remoteQueryDevice",
+        :loading="loading",
+        placeholder="请输入终端号",
+        @on-change="e => change('machineCode', e)")
+          Option(v-for="machine in deviceQuery", :value="machine.machineCode", :key="machine.machineCode") {{machine.machineCode}}
     Form-item(label="类型")
       Input(placeholder="请输入类型", v-model="form.type", @on-change="e => change('type', e.target.value)")
     Form-item(label="押金")
@@ -15,11 +30,35 @@
     Form-item(label="机具行")
       Input(placeholder="请输入机具行", v-model="form.machineTools", @on-change="e => change('machineTools', e.target.value)")
     Form-item(label="签约人")
-      Input(placeholder="请输入签约人", v-model="form.signUser", @on-change="e => change('signUser', e.target.value)")
+      Select(
+        v-model="form.signUser",
+        filterable,
+        remote,
+        :remote-method="remoteQueryUser",
+        :loading="loading",
+        placeholder="请输入签约人",
+        @on-change="e => change('signUser', e)")
+          Option(v-for="user in userQuery", :value="user.username", :key="user.username") {{user.username}}
     Form-item(label="机具领用人")
-      Input(placeholder="请输入机具领用人", v-model="form.useUser", @on-change="e => change('useUser', e.target.value)")
+      Select(
+        v-model="form.useUser",
+        filterable,
+        remote,
+        :remote-method="remoteQueryUser",
+        :loading="loading",
+        placeholder="请输入机具领用人",
+        @on-change="e => change('useUser', e)")
+          Option(v-for="user in userQuery", :value="user.username", :key="user.username") {{user.username}}
     Form-item(label="装机人")
-      Input(placeholder="请输入装机人", v-model="form.installUser", @on-change="e => change('installUser', e.target.value)")
+      Select(
+        v-model="form.installUser",
+        filterable,
+        remote,
+        :remote-method="remoteQueryUser",
+        :loading="loading",
+        placeholder="请输入机具领用人",
+        @on-change="e => change('installUser', e)")
+          Option(v-for="user in userQuery", :value="user.username", :key="user.username") {{user.username}}
     Form-item(label="装机时间")
       Date-picker(
         v-model="form.time",
@@ -37,13 +76,16 @@
   import { mapState } from 'vuex'
   import moment from 'moment'
   import _ from 'lodash'
-
+  import { COMPANY_RESULT } from 'store/company/keys'
+  import { DEVICE_RESULT } from 'store/device/keys'
+  import { USER_RESULT } from 'store/user/keys'
   export default {
     data () {
       return {
         _Autocomplete: null,
         queryLoading: false,
-        queryResult: [],
+        companyResult: [],
+        deviceResult: [],
         dateOptions: {
           disabledDate (date) {
             return moment(date).isBefore(moment().add(240, 'm'), 'day')
@@ -55,15 +97,30 @@
       ...mapState({
         form: ({ dispatch }) => dispatch.form,
         isEdit: ({ dispatch }) => dispatch.isEdit,
-        loading: ({ dispatch }) => dispatch.loading.edit
-      }),
-      queryItems () {
-        return _.chain(this.queryResult).map(item => item.name).value()
-      }
+        loading: ({ dispatch }) => dispatch.loading.edit,
+        companyQuery: ({company}) => company.queryResult,
+        deviceQuery: ({device}) => device.queryResult,
+        userQuery: ({user}) => user.queryResult
+      })
     },
     methods: {
       change (key, value) {
         this.$store.commit('dispatch/form/change', { key, value })
+      },
+      // 商户搜索
+      remoteQueryCompany: _.debounce(function (keyword) { this.query(keyword) }, 300),
+      async query (keyword) {
+        this.$store.dispatch(COMPANY_RESULT, keyword)
+      },
+      // 设备搜索
+      remoteQueryDevice: _.debounce(function (keyword) { this.queryDevice(keyword) }, 300),
+      async queryDevice (keyword) {
+        this.$store.dispatch(DEVICE_RESULT, keyword)
+      },
+      // 用户搜索
+      remoteQueryUser: _.debounce(function (keyword) { this.queryUser(keyword) }, 300),
+      async queryUser (keyword) {
+        this.$store.dispatch(USER_RESULT, keyword)
       }
     }
   }

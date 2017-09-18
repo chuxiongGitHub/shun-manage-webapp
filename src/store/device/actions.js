@@ -1,8 +1,9 @@
-import { LIST, CREATE, MODAL, QUERY_CHANGE, MODIFY, EDIT, SAVE } from './keys'
+import { LIST, CREATE, MODAL, QUERY_CHANGE, MODIFY, EDIT, SAVE, DEVICE_RESULT } from './keys'
 
 import iview from 'iview'
 
 import * as api from 'api/machine'
+import _ from 'lodash'
 
 export default {
   async [LIST] ({ state, commit }) {
@@ -54,5 +55,13 @@ export default {
       commit(CREATE, { status: -1 })
       iview.Message.error(message)
     }
+  },
+  async [DEVICE_RESULT] ({ commit }, machineCode) {
+    if (!_.trim(machineCode)) {
+      commit(DEVICE_RESULT, [])
+      console.log('11', DEVICE_RESULT)
+      return
+    }
+    commit(DEVICE_RESULT, await api.query(machineCode))
   }
 }

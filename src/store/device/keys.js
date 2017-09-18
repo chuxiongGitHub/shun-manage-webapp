@@ -15,3 +15,5 @@ export const SAVE = prefix + 'save'
 export const MODIFY = prefix + 'modify'
 
 export const EDIT = prefix + 'edit'
+
+export const DEVICE_RESULT = prefix + 'device/result'

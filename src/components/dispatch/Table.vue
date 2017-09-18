@@ -23,6 +23,7 @@ export default {
         {
           title: '商户名称',
           width: '160',
+          align: 'center',
           render: (h, { row }) => {
             const company = row.company
             return <span>{company.name}</span>
@@ -31,6 +32,7 @@ export default {
         {
           title: '商户编号',
           width: '85',
+          align: 'center',
           render: (h, { row }) => {
             const company = row.company
             return <span>{company.code}</span>
@@ -39,6 +41,7 @@ export default {
         {
           title: '终端号',
           width: '80',
+          align: 'center',
           render: (h, { row }) => {
             const machine = row.machine
             return <span>{machine.machineCode}</span>
@@ -47,6 +50,7 @@ export default {
         {
           title: '商户地址',
           width: '170',
+          align: 'center',
           render: (h, { row }) => {
             const company = row.company
             return <span>{company.address.name}</span>
@@ -55,6 +59,7 @@ export default {
         {
           title: '联系人',
           width: '90',
+          align: 'center',
           render: (h, { row }) => {
             const company = row.company
             return <span>{company.username}</span>
@@ -63,6 +68,7 @@ export default {
         {
           title: '联系电话',
           width: '110',
+          align: 'center',
           render: (h, { row }) => {
             const company = row.company
             return <span>{company.mobile}</span>
@@ -71,26 +77,31 @@ export default {
         {
           title: '类型',
           width: '60',
+          align: 'center',
           key: 'type'
         },
         {
           title: '押金',
           width: '60',
+          align: 'center',
           key: 'money'
         },
         {
           title: '押金类型',
           width: '85',
+          align: 'center',
           key: 'moneyType'
         },
         {
           title: '机具行',
           width: '100',
+          align: 'center',
           key: 'machineTools'
         },
         {
           title: '签约人',
           width: '90',
+          align: 'center',
           render: (h, { row }) => {
             const signUser = row.signUser
             return <span>{signUser.username}</span>
@@ -99,6 +110,7 @@ export default {
         {
           title: '机具领用人',
           width: '100',
+          align: 'center',
           render: (h, { row }) => {
             const useUser = row.useUser
             return <span>{useUser.username}</span>
@@ -107,6 +119,7 @@ export default {
         {
           title: '装机人',
           width: '90',
+          align: 'center',
           render: (h, { row }) => {
             const installUser = row.installUser
             return <span>{installUser.username}</span>
@@ -115,11 +128,13 @@ export default {
         {
           title: '装机时间',
           width: '135',
+          align: 'center',
           key: 'time'
         },
         {
           title: '工单状态',
           width: '130',
+          align: 'center',
           render: (h, { row }) => {
             var color = ''
             var text = ''
@@ -158,9 +173,7 @@ export default {
         },
         {
           title: '操作',
-          render: (h, { row }) => {
-            return <i-button type="primary" size="small">编辑</i-button>
-          }
+          key: ''
         }
       ]
     }
