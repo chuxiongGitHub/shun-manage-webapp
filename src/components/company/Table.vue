@@ -59,12 +59,14 @@ export default {
         {
           title: '状态',
           render: (h, { row }) => {
-            switch (row.status) {
-              case 1:
-                return <span style="color:#009688">正常</span>
-              case 0:
-                return <span style="color:#ed3f14">停用</span>
-            }
+            const color = row.status === 1 ? 'green' : 'red'
+            const text = row.status === 1 ? '正常' : '禁用'
+            return h('Tag', {
+              props: {
+                type: 'dot',
+                color: color
+              }
+            }, text)
           }
         },
         {
@@ -79,10 +81,14 @@ export default {
           key: 'machineCode'
         },
         {
+          title: '备注信息',
+          key: 'desc'
+        },
+        {
           title: '操作',
           render: (h, { row }) => {
             return <div>
-              <span><i-button type="ghost" size="small">编辑</i-button></span>
+              <span><i-button type="ghost" size="small">禁用</i-button></span>
               <span style="margin-left:8px"><i-button type="primary" size="small">编辑</i-button></span>
             </div>
           }

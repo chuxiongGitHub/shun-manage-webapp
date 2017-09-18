@@ -9,7 +9,7 @@
         Form(:label-wodth="100")
           Form-item(style="text-align:right")
             Button(type="primary" @click="search") 查询
-            Button(type="primary" @click="open" style="margin-left:15px") 新建工单
+            Button(type="primary" @click="open" style="margin-left:15px") 新建维护工单
             Button(type="ghost" @click="clear" style="margin-left:15px") 刷新
 </template>
 <script>
@@ -22,20 +22,20 @@ export default {
   },
   computed: {
     ...mapState({
-      query: ({dispatch}) => dispatch.query
+      query: ({taskOld}) => taskOld.query
     })
   },
   methods: {
     search () {
-      this.$store.dispatch('dispatch/query/change', { key: this.searchKey, value: this.searchKey })
+      this.$store.dispatch('taskOld/query/change', { key: this.searchKey, value: this.searchKey })
     },
     open () {
-      this.$store.commit('dispatch/modal', { name: 'form', show: true })
+      this.$store.commit('taskOld/modal', { name: 'form', show: true })
     },
     clear () {
       this.query.searchKey = ''
       this.query.page = 1
-      this.$store.dispatch('dispatch/list')
+      this.$store.dispatch('taskOld/list')
     }
   }
 }

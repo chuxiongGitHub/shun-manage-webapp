@@ -23,45 +23,32 @@ export default {
           key: 'expire'
         },
         {
-          title: '商户地址',
+          title: '问题描述',
           key: 'user'
         },
         {
-          title: '联系人',
+          title: '机型',
           key: 'user'
         },
         {
-          title: '联系电话',
+          title: '地址',
           key: 'mobile'
         },
         {
-          title: '类型',
+          title: '联系电话',
           key: 'status'
         },
         {
-          title: '押金',
+          title: '联系人',
           key: ''
         },
         {
-          title: '机具行'
+          title: '维护负责人',
+          key: ''
         },
         {
-          title: '签约人'
-        },
-        {
-          title: '机具领用人'
-        },
-        {
-          title: '装机人'
-        },
-        {
-          title: '装机时间'
-        },
-        {
-          title: '工单状态'
-        },
-        {
-          title: '备注'
+          title: '完成情况'
+
         },
         {
           title: '操作',

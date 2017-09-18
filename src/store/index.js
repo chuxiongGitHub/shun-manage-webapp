@@ -13,6 +13,7 @@ export default new Vuex.Store({
     note: require('./note').default,
     dispatch: require('./dispatch').default,
     device: require('./device').default,
-    company: require('./company').default
+    company: require('./company').default,
+    taskOld: require('./taskOld').default
   }
 })

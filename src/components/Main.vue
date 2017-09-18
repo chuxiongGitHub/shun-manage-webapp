@@ -18,10 +18,10 @@
           Icon(type="ios-paper")
           | 任务管理
         Menu-item(name="task-new")
-          Icon(type="share")
+          Icon(type="checkmark")
           | 新建工单
         Menu-item(name="task-old")
-          Icon(type="share")
+          Icon(type="checkmark-circled")
           | 维护工单
       Menu-item(name="device")
         Icon(type="iphone")
