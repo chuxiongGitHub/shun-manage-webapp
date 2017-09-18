@@ -29,8 +29,17 @@ export default {
           key: 'type'
         },
         {
-          title: '是否紧急',
-          key: ''
+          title: '紧急程度',
+          render: (h, { row }) => {
+            const color = row.flag === 1 ? 'red' : 'blue'
+            const text = row.flag === 1 ? '紧急' : '一般'
+            return h('Tag', {
+              props: {
+                type: 'dot',
+                color: color
+              }
+            }, text)
+          }
         },
         {
           title: '所属单位',

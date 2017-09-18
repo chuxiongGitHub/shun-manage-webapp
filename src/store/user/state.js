@@ -2,7 +2,8 @@ import _ from 'lodash'
 
 const form = {
   username: '',
-  password: ''
+  mobile: '',
+  company: ''
 }
 export default {
   list: [],

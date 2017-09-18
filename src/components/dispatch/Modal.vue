@@ -21,7 +21,7 @@
         isEdit: ({ dispatch }) => dispatch.isEdit
       }),
       title () {
-        return this.isEdit ? '编辑任务' : '创建任务'
+        return this.isEdit ? '编辑工单' : '创建工单'
       },
       style () {
         return {

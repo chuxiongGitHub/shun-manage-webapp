@@ -6,7 +6,7 @@
     Form-item(label="用户姓名")
       Input(:value="form.username", @on-change="e => change('username', e.target.value)")
     Form-item(label="所属单位")
-      Input(:value="form.company")
+      Input(:value="form.company", @on-change="e => change('company', e.target.value)")
 </template>
 <script>
   import { mapState } from 'vuex'

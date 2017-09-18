@@ -37,12 +37,14 @@ export default {
           ],
           filterRemote: value => this.$store.dispatch('device/query/change', { key: 'status', value: value.join(',') }),
           render: (h, { row }) => {
-            switch (row.status) {
-              case 1:
-                return <span style="color:#009688">正常</span>
-              case 0:
-                return <span style="color:#ed3f14">停用</span>
-            }
+            const color = row.status === 1 ? 'green' : 'red'
+            const text = row.status === 1 ? '正常' : '禁用'
+            return h('Tag', {
+              props: {
+                type: 'dot',
+                color: color
+              }
+            }, text)
           }
         },
         {

@@ -15,12 +15,10 @@ export default {
     state.loading.create = status === 0
   },
   [LIST] (state, { list, page, size, total }) {
-    console.log('companyList', list)
     state.list = list
     state.total = total
   },
   [FORM_CHANGE] (state, { key, value }) {
-    console.log('form', state.form)
     state.form[key] = value
   },
   [QUERY_CHANGE] (state, { key, value }) {

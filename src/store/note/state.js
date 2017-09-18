@@ -3,7 +3,8 @@ import _ from 'lodash'
 const form = {
   title: '',
   content: '',
-  type: ''
+  type: '',
+  flag: 0
 }
 export default {
   list: [],

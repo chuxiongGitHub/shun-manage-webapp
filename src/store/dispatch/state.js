@@ -1,10 +1,17 @@
 import _ from 'lodash'
 
 const form = {
-  title: '',
-  content: '',
-  point: { name: '', lng: null, lat: null },
-  expire: null
+  name: '',
+  installUser: '',
+  useUser: '',
+  signUser: '',
+  money: '',
+  time: '',
+  remark: '',
+  machineCode: '',
+  machineTools: '',
+  type: '',
+  moneyType: ''
 }
 export default {
   list: [],

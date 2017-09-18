@@ -13,10 +13,9 @@ export default {
     }),
     content () {
       if (this.infoData.type === 'person') {
-        console.log('这是个person')
         return 'AppMarketInfoPerson'
       }
-      if (this.infoData.type === 'compay') {
+      if (this.infoData.type === 'company') {
         return 'AppMarketInfoCompany'
       }
     }

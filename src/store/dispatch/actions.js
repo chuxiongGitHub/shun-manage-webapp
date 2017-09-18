@@ -20,10 +20,11 @@ export default {
     const form = { ...state.form }
     try {
       commit(CREATE, { status: 0 })
-      if (!form.title) throw new Error('请填写任务名称')
-      if (!form.content) throw new Error('请填写任务内容')
-      if (form.content.length <= 5) throw new Error('任务内容不能少于5个字符')
-      if (!form.expire) throw new Error('请填写任务过期时间')
+      if (!form.name) throw new Error('请填写商户名称')
+      if (!form.machineCode) throw new Error('请填写终端号')
+      if (!form.time) throw new Error('请填写安装时间')
+      if (!form.type) throw new Error('请填写工单类型')
+      if (!form.installUser) throw new Error('请填写装机人')
       await api.create(form)
       dispatch(LIST)
       commit(MODAL, { name: 'form', show: false })

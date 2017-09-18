@@ -64,7 +64,6 @@ export default {
       })
 
       this.companyMarkers = _.map(this.companyList, (company) => {
-        console.log('company', company.address.position)
         const icon = '/static/images/house.png'
         return this.createMarker({ position: company.address.position, extData: { type: 'company', data: company }, icon })
       })
@@ -73,14 +72,13 @@ export default {
       const { lng, lat } = position
       const marker = new AMap.Marker({
         map: this.map,
-        position: [lng || 102.713114, lat || 25.059949],
+        position: [lng || 0, lat || 0],
         icon: new AMap.Icon({ image: icon }),
         extData
       })
       AMap.event.addListener(marker, 'click', () => {
         this.infoData = marker.getExtData() || {}
         this.$store.commit('map/info/data', this.infoData)
-        console.log('infoData', this.infoData)
         this.$nextTick(() => {
           this.createInfoWindow().open(this.map, marker.getPosition())
         })

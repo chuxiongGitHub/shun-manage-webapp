@@ -64,6 +64,10 @@ export default {
           key: 'createTime'
         },
         {
+          title: '所属单位',
+          key: 'company'
+        },
+        {
           title: '登录次数',
           key: 'loginNum'
         },

@@ -5,6 +5,10 @@
       Input(:value="form.titile", @on-change="e => change('title', e.target.value)")
     Form-item(label="公告类型")
       Input(:value="form.type", @on-change="e => change('type', e.target.value)")
+    Form-item(label="是否紧急")
+      Radio-group(:value="form.flag", @on-change="e => change('flag', e)")
+        Radio(:label="0") 不紧急
+        Radio(:label="1") 紧急
     Form-item(label="公告内容")
       Input(:value="form.content", @on-change="e => change('content', e.target.value)" :rows="5" type="textarea")
 </template>
