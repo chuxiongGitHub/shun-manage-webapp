@@ -14,6 +14,7 @@ export default new Vuex.Store({
     dispatch: require('./dispatch').default,
     device: require('./device').default,
     company: require('./company').default,
-    taskOld: require('./taskOld').default
+    taskOld: require('./taskOld').default,
+    sign: require('./sign').default
   }
 })

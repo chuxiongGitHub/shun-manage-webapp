@@ -13,7 +13,8 @@ const routers = new Router({
     { path: '/note', name: 'note', component: resolve => require(['@/components/note/View'], resolve) },
     { path: '/device', name: 'device', component: resolve => require(['@/components/device/View'], resolve) },
     { path: '/company', name: 'company', component: resolve => require(['@/components/company/View'], resolve) },
-    { path: '/task-old', name: 'task-old', component: resolve => require(['@/components/taskOld/View'], resolve) }
+    { path: '/task-old', name: 'task-old', component: resolve => require(['@/components/taskOld/View'], resolve) },
+    { path: '/sign', name: 'sign', component: resolve => require(['@/components/sign/View'], resolve) }
   ]
 })
 

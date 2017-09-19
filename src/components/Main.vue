@@ -29,7 +29,7 @@
       Menu-item(name="sign")
         Icon(type="android-alarm-clock")
         | 签到管理
-      Menu-item(name="company")
+      Menu-item(name="sign")
         Icon(type="ios-home-outline")
         | 商户管理
       .log-out
