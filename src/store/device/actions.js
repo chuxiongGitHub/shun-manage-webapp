@@ -18,6 +18,7 @@ export default {
     try {
       commit(CREATE, { status: 0 })
       if (!form.machineCode) throw new Error('设备编码不能为空')
+      if (!form.terminalNumber) throw new Error('设备终端号不能为空')
       await api.create(form)
       dispatch(LIST)
       commit(MODAL, { name: 'form', show: false })

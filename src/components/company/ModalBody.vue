@@ -21,13 +21,22 @@
         clearable)
         Option(v-for="item in queryItems", :value="item", :key="item")
     Form-item(label="设备编码")
-      Input(v-model="form.machineCode", @on-change="({target}) => change('machineCode', target.value)", placeholder="请输入设备编码")
+      Select(
+        v-model="form.machineCode",
+        filterable,
+        remote,
+        :remote-method="remoteQueryDevice",
+        :loading="loading",
+        placeholder="请输入设备编码",
+        @on-change="e => change('machineCode', e)")
+          Option(v-for="machine in deviceQuery", :value="machine.machineCode", :key="machine.machineCode") {{machine.machineCode}}
     Form-item(label="商户描述")
       Input(v-model="form.desc", @on-change="({target}) => change('desc', target.value)", :rows="3", type="textarea", placeholder="请输入商户描述")
 </template>
 <script>
   import { mapState } from 'vuex'
   import { FORM_CHANGE } from 'store/company/keys'
+  import { DEVICE_RESULT } from 'store/device/keys'
   import _ from 'lodash'
   const loadScript = (key = '4d014a4800e8f9fc8ef524a94db2588a') => new Promise((resolve, reject) => {
     const callback = `CALLBACK_${Date.now()}`
@@ -71,13 +80,19 @@
       ...mapState({
         form: ({ company }) => company.form,
         isEdit: ({ company }) => company.isEdit,
-        loading: ({ company }) => company.loading.edit
+        loading: ({ company }) => company.loading.edit,
+        deviceQuery: ({device}) => device.queryResult
       }),
       queryItems () {
         return _.chain(this.queryResult).map(item => item.name).value()
       }
     },
     methods: {
+      // 设备搜索
+      remoteQueryDevice: _.debounce(function (keyword) { this.queryDevice(keyword) }, 300),
+      async queryDevice (keyword) {
+        this.$store.dispatch(DEVICE_RESULT, keyword)
+      },
       change (key, value) {
         if (key === 'address') {
           const item = (_.chain(this.queryResult).filter(item => item.name === value).value() || [])[0]

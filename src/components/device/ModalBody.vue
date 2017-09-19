@@ -7,6 +7,8 @@
       Input(placeholder="请输入设备编码", v-model="form.machineCode", @on-change="e => change('machineCode', e.target.value)", :disabled="isEdit")
     Form-item(label="设备型号")
       Input(v-model="form.machineType", @on-change="e => change('machineType', e.target.value)", placeholder="请输入设备型号")
+    Form-item(label="设备终端号")
+      Input(v-model="form.terminalNumber", @on-change="e => change('terminalNumber', e.target.value)", placeholder="请输入终端号")
     Form-item(label="备注信息")
       Input(v-model="form.remark", type="textarea", @on-change="e => change('remark', e.target.value)", :rows="2", placeholder="请输入备注信息")
 </template>

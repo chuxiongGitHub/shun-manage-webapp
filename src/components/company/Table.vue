@@ -42,6 +42,13 @@ export default {
           key: 'code'
         },
         {
+          title: '设备终端',
+          render: (h, { row }) => {
+            const machine = row.machine
+            return <span>{machine.terminalNumber}</span>
+          }
+        },
+        {
           title: '商户地址',
           render: (h, { row }) => {
             const { address } = row

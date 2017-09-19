@@ -22,7 +22,7 @@ export default {
         },
         {
           title: '商户名称',
-          width: '160',
+          width: '100',
           align: 'center',
           render: (h, { row }) => {
             const company = row.company
@@ -30,12 +30,20 @@ export default {
           }
         },
         {
-          title: '终端号',
+          title: '设备号',
           width: '80',
           align: 'center',
           render: (h, { row }) => {
             const machine = row.machine
             return <span>{machine.machineCode}</span>
+          }
+        },
+        {
+          title: '终端号',
+          align: 'center',
+          render: (h, { row }) => {
+            const machine = row.machine
+            return <span>{machine.terminalNumber}</span>
           }
         },
         {

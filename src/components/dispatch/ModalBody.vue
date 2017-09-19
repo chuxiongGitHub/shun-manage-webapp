@@ -10,14 +10,14 @@
         :loading="loading", placeholder="请输商户名称",
         @on-change="e => change('name', e)")
           Option(v-for="company in companyQuery", :value="company.name", :key="company.name") {{company.name}}
-    Form-item(label="终端号")
+    Form-item(label="设备编码")
       Select(
         v-model="form.machineCode",
         filterable,
         remote,
         :remote-method="remoteQueryDevice",
         :loading="loading",
-        placeholder="请输入终端号",
+        placeholder="请输入设备编码",
         @on-change="e => change('machineCode', e)")
           Option(v-for="machine in deviceQuery", :value="machine.machineCode", :key="machine.machineCode") {{machine.machineCode}}
     Form-item(label="类型")

@@ -5,7 +5,8 @@ const form = {
   remark: '',
   status: 1,
   name: '',
-  machineType: ''
+  machineType: '',
+  terminalNumber: ''
 }
 export default {
   list: [],

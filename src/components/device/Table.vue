@@ -29,6 +29,10 @@ export default {
           key: 'machineCode'
         },
         {
+          title: '设备终端号',
+          key: 'terminalNumber'
+        },
+        {
           title: '设备型号',
           key: 'machineType'
         },
