@@ -30,15 +30,6 @@ export default {
           }
         },
         {
-          title: '商户编号',
-          width: '85',
-          align: 'center',
-          render: (h, { row }) => {
-            const company = row.company
-            return <span>{company.code}</span>
-          }
-        },
-        {
           title: '终端号',
           width: '80',
           align: 'center',
@@ -173,7 +164,10 @@ export default {
         },
         {
           title: '操作',
-          key: ''
+          key: 'action',
+          render: (h, { row }) => {
+            return <i-button type="info" size="small">编辑</i-button>
+          }
         }
       ]
     }

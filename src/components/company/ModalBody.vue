@@ -2,13 +2,13 @@
   Form(:label-width="72", :model="form")
     Spin(v-if="loading", fix)
     Form-item(label="商户名称")
-      Input(v-model="form.name", @on-change="({target}) => change('name', target.value)")
+      Input(v-model="form.name", @on-change="({target}) => change('name', target.value)", placeholder="请输入商户名称")
     Form-item(label="商户编码")
-      Input(v-model="form.code", @on-change="({target}) => change('code', target.value)")
+      Input(v-model="form.code", @on-change="({target}) => change('code', target.value)", placeholder="请输入商户编码")
     Form-item(label="联系人")
-      Input(v-model="form.username", @on-change="({target}) => change('username', target.value)")
+      Input(v-model="form.username", @on-change="({target}) => change('username', target.value)", placeholder="请输入联系人")
     Form-item(label="联系电话")
-      Input(v-model="form.mobile", @on-change="({target}) => change('mobile', target.value)")
+      Input(v-model="form.mobile", @on-change="({target}) => change('mobile', target.value)", placeholder="请输入联系电话")
     Form-item(label="商户地址")
       Select(
         v-model="form.address.name",
@@ -21,9 +21,9 @@
         clearable)
         Option(v-for="item in queryItems", :value="item", :key="item")
     Form-item(label="设备编码")
-      Input(v-model="form.machineCode", @on-change="({target}) => change('machineCode', target.value)")
+      Input(v-model="form.machineCode", @on-change="({target}) => change('machineCode', target.value)", placeholder="请输入设备编码")
     Form-item(label="商户描述")
-      Input(v-model="form.desc", @on-change="({target}) => change('desc', target.value)", :rows="3", type="textarea")
+      Input(v-model="form.desc", @on-change="({target}) => change('desc', target.value)", :rows="3", type="textarea", placeholder="请输入商户描述")
 </template>
 <script>
   import { mapState } from 'vuex'
