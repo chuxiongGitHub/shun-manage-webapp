@@ -43,7 +43,11 @@ export default {
         },
         {
           title: '所属单位',
-          key: ''
+          align: 'center',
+          render: (h, { row }) => {
+            const user = row.user
+            return <span>{user.company}</span>
+          }
         },
         {
           title: '创建人',
