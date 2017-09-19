@@ -4,7 +4,7 @@
       Col(:span="12")
         Form(:label-width="80" :model="query")
           Form-item(label="综合查询：")
-            Input(placeholder="请输入姓名、姓名拼音、电话模糊查询",  v-model="query.searchKey", @on-enter="search", icon="ios-search-strong")
+            Input(placeholder="请输入姓名、姓名拼音、电话模糊查询",  v-model="query.searchKey", @on-enter="search", @on-blur="search", @on-click="search", icon="ios-search-strong")
       Col(:span="12")
         Form(:label-wodth="100")
           Form-item(style="text-align:right")

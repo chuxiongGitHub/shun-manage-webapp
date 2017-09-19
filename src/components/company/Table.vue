@@ -58,6 +58,11 @@ export default {
         },
         {
           title: '状态',
+          filters: [
+            { label: '正常', value: 1 },
+            { label: '禁用', value: 0 }
+          ],
+          filterRemote: value => this.$store.dispatch('company/query/change', { key: 'status', value: value.join(',') }),
           render: (h, { row }) => {
             const color = row.status === 1 ? 'green' : 'red'
             const text = row.status === 1 ? '正常' : '禁用'

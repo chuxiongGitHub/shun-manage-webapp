@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     search () {
-      this.$store.dispatch('taskOld/query/change', { key: this.searchKey, value: this.searchKey })
+      this.$store.dispatch('taskOld/query/change', { key: 'searchKey', value: this.query.searchKey })
     },
     open () {
       this.$store.commit('taskOld/modal', { name: 'form', show: true })

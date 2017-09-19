@@ -1,10 +1,11 @@
 import _ from 'lodash'
 
 const form = {
-  title: '',
-  content: '',
-  point: { name: '', lng: null, lat: null },
-  expire: null
+  name: '',
+  machineCode: '',
+  question: '',
+  serverUser: '',
+  time: ''
 }
 export default {
   list: [],
@@ -21,8 +22,7 @@ export default {
   isEdit: false,
   loading: {
     create: false,
-    edit: false,
-    resetPassword: false
+    edit: false
   },
   _form: _.cloneDeep(form),
   form: _.cloneDeep(form)

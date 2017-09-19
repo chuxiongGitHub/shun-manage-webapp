@@ -29,6 +29,10 @@ export default {
           key: 'machineCode'
         },
         {
+          title: '设备型号',
+          key: 'machineType'
+        },
+        {
           title: '设备状态',
           align: 'center',
           filters: [

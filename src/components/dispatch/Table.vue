@@ -125,6 +125,14 @@ export default {
         {
           title: '工单状态',
           width: '130',
+          filters: [
+            { label: '未派发', value: 0 },
+            { label: '已派发', value: 1 },
+            { label: '进行中', value: 2 },
+            { label: '已完成', value: 3 },
+            { label: '未完成', value: 4 }
+          ],
+          filterRemote: value => this.$store.dispatch('dispatch/query/change', { key: 'status', value: value.join(',') }),
           align: 'center',
           render: (h, { row }) => {
             var color = ''

@@ -4,7 +4,8 @@ const form = {
   machineCode: '',
   remark: '',
   status: 1,
-  name: ''
+  name: '',
+  machineType: ''
 }
 export default {
   list: [],

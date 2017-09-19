@@ -9,7 +9,7 @@
         | 用户管理
       Menu-item(name="map")
         Icon(type="ios-location-outline")
-        | 地图打点
+        | 位置信息
       Menu-item(name="note")
         Icon(type="android-notifications")
         | 公告管理
