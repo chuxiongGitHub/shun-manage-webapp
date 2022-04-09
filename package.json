@@ -15,7 +15,7 @@
     "echarts": "^3.6.2",
     "iview": "^2.0.0-rc.17",
     "lodash": "^4.17.4",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "pug": "^2.0.0-rc.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
